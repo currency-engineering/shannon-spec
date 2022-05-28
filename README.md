@@ -1,1 +1,1 @@
-## Shannon Currency Specification
+[Shannon Currency Specification](specification.md)
