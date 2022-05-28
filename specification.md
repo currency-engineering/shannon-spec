@@ -1,30 +1,11 @@
-\documentclass[a4paper]{book}
+## Shannon Currency Specification
 
-\usepackage{graphicx}
-\usepackage{float}                                              % Required to use [H] in figures.
-\usepackage[colorlinks=true, urlcolor=blue]{hyperref}           % For hyperlinks
-\graphicspath{{png}}                                            % Set the default path for images.
-\DeclareGraphicsExtensions{.png}                                % Only use image files with .png extension.
-\linespread{1.30}                                               % Set line-height.
-
-\hbadness=99999  % or any number >=10000
-\vbadness=99999  % or any number >=10000
-
-\begin{document}
-
-    \title{Shannon Currency Specification}
-    \author{Eric Findlay}
-    \date{April 2022}
-    \maketitle
-
-    \tableofcontents
-
-\section{Introduction}
+### Introduction
 
 This document is an informal specification of the Shannon Currency implementation and also sets out
 the reasoning behind the design. See the ``Currency Engineering'' paper for theoretical foundations.
 
-\section{Design to Control Transactions}
+### Design to Control Transactions
 
 Paper currency is overly flexible in its possible uses. This means that it can be used for
 transactions that are antagonistic to other transactions. Currency can be designed to limit the
@@ -49,25 +30,23 @@ attached to the transaction beyond the obligations directly associated with the 
 2. The account that receives repayments for time transactions are always is always the original
 lender.
 
-\section{Storage}
+### Storage
 
 What data must be stored in the runtime, and how should it be structured?
 
-There are some best practices for storing data (\cite{tabrizi2019} Around 16:00).
+There are some best practices for storing data (Tabrizi 2019a) Around 16:00).
 
+### Transactions
 
-\section{Transactions}
+### Account Balances
 
-
-\section{Account Balances}
-
-\section{Price and Quantity Data}
+### Price and Quantity Data
 
 Price and quantity data can be collected so as to calculate an exact $Q$ and $P$. An accurate price
 level is used in all time transaction contracts. The data is also use to calculate the fundamental
 $D_x$ control variable. 
 
-\section{Decentralization}
+### Decentralization
 
 One of the goals of the Substrate framework is to be highly decentralized. This significantly
 increases the resiliance of the currency. Decentralization is fundamentally limited by the need for
@@ -96,7 +75,7 @@ Account holders are then free to choose which currency or currencies to hold acc
 pressure on monetary authorities to manage currencies well, or face competition from other
 currencies.
 
-\section{Intermediate Accounts}
+### Intermediate Accounts
 
 Each exchange transaction requires that the goods category is recorded by both the seller and the
 buyer. This confirms that the exchange transaction is not some other kind of transactions and that
@@ -112,15 +91,9 @@ to group payments, each buyer paying into the intermediate account. Money in int
 cannot be transfers to other intermediate accounts. This would a chain of transactions that could
 bypass the recording of goods category. 
 
-\begin{thebibliography}{9}
+### References
 
-\bibitem{tabrizi2019}
-    Shawn Tabrizi,
-    \emph{Storage on Substrate}
-    Presentation for Sub 0.1,
-    2019.
-
-\end{thebibliography}
-
-\end{document}
-
+Shawn Tabrizi,
+Storage on Substrate
+Presentation for Sub 0.1
+2019

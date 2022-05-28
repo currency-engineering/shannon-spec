@@ -1,0 +1,1 @@
+## Shannon Currency Specification
